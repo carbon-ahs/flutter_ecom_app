@@ -1,3 +1,3 @@
 # ecom_app
 
-- changing in android gradle
+- 27/11/2024: Firebase connected

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "306528987998",
+    "project_id": "ecom-app-bbc91",
+    "storage_bucket": "ecom-app-bbc91.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306528987998:android:63c891434f802baf193dcf",
+        "android_client_info": {
+          "package_name": "com.example.eco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2adk-ZRkGdbNVOronOoUNXvOt7jhOECE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306528987998:android:3b8338b84c3bb488193dcf",
+        "android_client_info": {
+          "package_name": "com.example.ecom_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2adk-ZRkGdbNVOronOoUNXvOt7jhOECE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
