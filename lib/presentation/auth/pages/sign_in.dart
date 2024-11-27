@@ -1,8 +1,12 @@
 import 'package:ecom_app/common/helper/navigator/app_navigator.dart';
+import 'package:ecom_app/common/widgets/appbar/app_bar.dart';
 import 'package:ecom_app/common/widgets/button/basic_app_button.dart';
 import 'package:ecom_app/core/configs/theme/app_colors.dart';
 import 'package:ecom_app/presentation/auth/pages/enter_password.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import 'sign_up.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -10,10 +14,13 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: BasicAppbar(
+        hideBack: true,
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 16,
-          vertical: 80,
+          vertical: 40,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,6 +71,10 @@ class SignInPage extends StatelessWidget {
         TextSpan(text: "Don't you have an account? "),
         TextSpan(
           text: "Create one!",
+          recognizer: TapGestureRecognizer()
+            ..onTap = () {
+              AppNavigator.push(context, SignUpPage());
+            },
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),

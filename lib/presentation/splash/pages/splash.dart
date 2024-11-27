@@ -1,6 +1,6 @@
 import 'package:ecom_app/core/configs/assets/app_vectors.dart';
 import 'package:ecom_app/core/configs/theme/app_colors.dart';
-import 'package:ecom_app/presentation/auth/pages/signin.dart';
+import 'package:ecom_app/presentation/auth/pages/sign_in.dart';
 import 'package:ecom_app/presentation/splash/bloc/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
