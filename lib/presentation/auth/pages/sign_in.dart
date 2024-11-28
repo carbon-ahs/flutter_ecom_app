@@ -1,7 +1,6 @@
 import 'package:ecom_app/common/helper/navigator/app_navigator.dart';
 import 'package:ecom_app/common/widgets/appbar/app_bar.dart';
 import 'package:ecom_app/common/widgets/button/basic_app_button.dart';
-import 'package:ecom_app/core/configs/theme/app_colors.dart';
 import 'package:ecom_app/presentation/auth/pages/enter_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
