@@ -8,13 +8,17 @@ import '../../../common/widgets/appbar/app_bar.dart';
 import '../../../common/widgets/button/basic_reactive_button.dart';
 import '../../../core/configs/theme/app_colors.dart';
 import '../../../data/auth/models/user_creation_req.dart';
+import '../../../domain/auth/usecases/signup.dart';
 import '../bloc/age_selection_cubit.dart';
 import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selection_cubit.dart';
 
 class GenderAndAgeSelectionPage extends StatelessWidget {
   final UserCreationReq userCreationReq;
-  const GenderAndAgeSelectionPage({required this.userCreationReq, super.key});
+  const GenderAndAgeSelectionPage({
+    required this.userCreationReq,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
           BlocProvider(create: (context) => GenderSelectionCubit()),
           BlocProvider(create: (context) => AgeSelectionCubit()),
           BlocProvider(create: (context) => AgesDisplayCubit()),
-          // BlocProvider(create: (context) => ButtonStateCubit())
+          BlocProvider(create: (context) => ButtonStateCubit())
         ],
         // child: BlocListener<ButtonStateCubit, ButtonState>(
         //   listener: (context, state) {
@@ -171,8 +175,10 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
                     context.read<GenderSelectionCubit>().selectedIndex;
                 userCreationReq.age =
                     context.read<AgeSelectionCubit>().selectedAge;
-                context.read<ButtonStateCubit>();
-                // .execute(usecase: SignupUseCase(), params: userCreationReq);
+                context.read<ButtonStateCubit>().execute(
+                      usecase: SignUpUseCase(),
+                      params: userCreationReq,
+                    );
               },
               title: 'Finish');
         }),
