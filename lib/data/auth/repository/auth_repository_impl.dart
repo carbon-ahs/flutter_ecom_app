@@ -7,7 +7,12 @@ import '../source/auth_firebase_service.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   @override
-  Future<Either> signUp(UserCreationReq user) {
-    return sl<AuthFirebaseService>().signUp(user);
+  Future<Either> signUp(UserCreationReq user) async {
+    return await sl<AuthFirebaseService>().signUp(user);
+  }
+
+  @override
+  Future<Either> getAges() async {
+    return await sl<AuthFirebaseService>().getAges();
   }
 }

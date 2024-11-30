@@ -1,3 +1,5 @@
+import 'package:ecom_app/common/helper/bottomsheet/app_bottomsheet.dart';
+import 'package:ecom_app/presentation/auth/widgets/ages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +9,7 @@ import '../../../common/widgets/button/basic_reactive_button.dart';
 import '../../../core/configs/theme/app_colors.dart';
 import '../../../data/auth/models/user_creation_req.dart';
 import '../bloc/age_selection_cubit.dart';
+import '../bloc/ages_display_cubit.dart';
 import '../bloc/gender_selection_cubit.dart';
 
 class GenderAndAgeSelectionPage extends StatelessWidget {
@@ -21,7 +24,7 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => GenderSelectionCubit()),
           BlocProvider(create: (context) => AgeSelectionCubit()),
-          // BlocProvider(create: (context) => AgesDisplayCubit()),
+          BlocProvider(create: (context) => AgesDisplayCubit()),
           // BlocProvider(create: (context) => ButtonStateCubit())
         ],
         // child: BlocListener<ButtonStateCubit, ButtonState>(
@@ -123,17 +126,23 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
   Widget _age() {
     return BlocBuilder<AgeSelectionCubit, String>(builder: (context, state) {
       return GestureDetector(
-        // onTap: () {
-        //   AppBottomsheet.display(
-        //       context,
-        //       MultiBlocProvider(providers: [
-        //         BlocProvider.value(
-        //           value: context.read<AgeSelectionCubit>(),
-        //         ),
-        //         BlocProvider.value(
-        //             value: context.read<AgesDisplayCubit>()..displayAges())
-        //       ], child: const Ages()));
-        // },
+        onTap: () {
+          //   AppBottomSheet.display(
+          //     context,
+          //     Ages(),
+          //   );
+          // },
+          AppBottomSheet.display(
+              context,
+              MultiBlocProvider(providers: [
+                BlocProvider.value(
+                  value: context.read<AgeSelectionCubit>(),
+                ),
+                BlocProvider.value(
+                  value: context.read<AgesDisplayCubit>()..displayAges(),
+                ),
+              ], child: const Ages()));
+        },
         child: Container(
           height: 60,
           padding: const EdgeInsets.symmetric(horizontal: 16),

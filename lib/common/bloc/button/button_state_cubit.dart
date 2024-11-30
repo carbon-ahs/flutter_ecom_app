@@ -10,8 +10,8 @@ class ButtonStateCubit extends Cubit<ButtonState> {
   Future<void> execute({dynamic params, required UseCase usecase}) async {
     emit(ButtonLoadingState());
     try {
-      // Either returnedData = await usecase.call(params: params);
-      Either returnedData = await usecase.call(params);
+      Either returnedData = await usecase.call(params: params);
+      // Either returnedData = await usecase.call(params);
       returnedData.fold((error) {
         emit(ButtonFailureState(errorMessage: error));
       }, (data) {

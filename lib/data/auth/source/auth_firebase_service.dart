@@ -3,9 +3,9 @@ import 'package:dartz/dartz.dart';
 import 'package:ecom_app/data/auth/models/user_creation_req.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 abstract class AuthFirebaseService {
   Future<Either> signUp(UserCreationReq user);
+  Future<Either> getAges();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -36,6 +36,17 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
         errorMessage = 'The account already exists for that email.';
       }
       return Left(errorMessage);
+    }
+  }
+
+  @override
+  Future<Either> getAges() async {
+    try {
+      var returnedData =
+          await FirebaseFirestore.instance.collection('Ages').get();
+      return Right(returnedData.docs);
+    } catch (e) {
+      return Left('Pls Try again.');
     }
   }
 }
