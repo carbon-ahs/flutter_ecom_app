@@ -131,11 +131,6 @@ class GenderAndAgeSelectionPage extends StatelessWidget {
     return BlocBuilder<AgeSelectionCubit, String>(builder: (context, state) {
       return GestureDetector(
         onTap: () {
-          //   AppBottomSheet.display(
-          //     context,
-          //     Ages(),
-          //   );
-          // },
           AppBottomSheet.display(
               context,
               MultiBlocProvider(providers: [
